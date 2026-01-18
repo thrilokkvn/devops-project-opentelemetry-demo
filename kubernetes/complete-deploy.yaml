@@ -440,7 +440,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: accountingservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-accountingservice'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -504,7 +504,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: adservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'thrilokkd/ad-service:v1'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -570,7 +570,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: cartservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-cartservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -646,7 +646,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: checkoutservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-checkoutservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -732,7 +732,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: currencyservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-currencyservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -794,7 +794,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: emailservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-emailservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -856,7 +856,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: flagd
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-feature/flagd:v0.11.1'
           imagePullPolicy: IfNotPresent
           command:
             - /flagd-build
@@ -890,7 +890,7 @@ spec:
             - name: config-rw
               mountPath: /etc/flagd
         - name: flagdui
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-flagdui'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -969,7 +969,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frauddetectionservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frauddetectionservice'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -1037,7 +1037,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontend
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frontend'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1127,7 +1127,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontendproxy
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-frontendproxy'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1223,7 +1223,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: imageprovider
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-imageprovider'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1285,7 +1285,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: kafka
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-kafka'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1353,7 +1353,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: loadgenerator
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-loadgenerator'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1431,7 +1431,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: paymentservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-paymentservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1499,7 +1499,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: productcatalogservice
-          image: 'thrilokkd/product-catalog-service:21118385338
+          image: 'thrilokkd/product-catalog-service:21118385338'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1563,7 +1563,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: quoteservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-quoteservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1629,7 +1629,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: recommendationservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-recommendationservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1696,7 +1696,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: shippingservice
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'ghcr.io/open-telemetry/demo:1.12.0-shippingservice'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1757,7 +1757,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: valkey
-          image: 'thrilokkd/product-catalog-service:21118456058'
+          image: 'valkey/valkey:7.2-alpine'
           imagePullPolicy: IfNotPresent
           ports:
             
