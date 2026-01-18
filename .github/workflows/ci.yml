@@ -24,13 +24,11 @@ jobs:
               with:
                   go-version: 1.22
 
-            - name: Install dependencies
+            - name: Install dependencies and build
               run: |
-                    cd src/product-catalog
-                    go mod download
-
-            - name: Build product catalog service
-              run: go build -o product-catalog src/product-catalog/main.go
+                cd src/product-catalog
+                go mod download
+                go build -o product-catalog-service main.go
 
             - name: Run unit tests
               run: go test ./src/product-catalog/... -v
