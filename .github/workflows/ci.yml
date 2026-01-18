@@ -19,10 +19,10 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Go v1.24
+            - name: Setup Go v1.22
               uses: actions/setup-go@v4 
               with:
-                  go-version: 1.24
+                  go-version: 1.22
 
             - name: Install dependencies and build
               run: |
@@ -41,6 +41,11 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
+
+            - name: Setup Go v1.22
+              uses: actions/setup-go@v4 
+              with:
+                go-version: 1.22
 
             - name: Run golangci-lint
               uses: golangci/golangci-lint-action@v8
@@ -87,7 +92,7 @@ jobs:
             - name: Update tag in Kubernetes manifests
               run: |
                   sed -i 's|image: .*|image: '"${{ secrets.DOCKERHUB_USERNAME }}"'/product-catalog-service:'"${{ github.run_id }}"'|g' kubernetes/product-catalog/deploy.yaml
-                  sed -i "s|image: '${{ secrets.DOCKERHUB_USERNAME }}/product-catalog-service:.*'|image: '${{ secrets.DOCKERHUB_USERNAME }}/product-catalog-service:${{ github.run_id }}'|" kubernetes/complete-deploy.yaml
+                  sed -i "s|${{ secrets.DOCKERHUB_USERNAME }}/product-catalog-service:.*|${{ secrets.DOCKERHUB_USERNAME }}/product-catalog-service:${{ github.run_id }}|g" kubernetes/product-catalog/deploy.yaml
 
             - name: Commit and push changes
               run: |
