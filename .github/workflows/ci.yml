@@ -19,10 +19,10 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Go v1.22
+            - name: Setup Go v1.24
               uses: actions/setup-go@v4 
               with:
-                  go-version: 1.22
+                  go-version: 1.24
 
             - name: Install dependencies and build
               run: |
@@ -30,8 +30,10 @@ jobs:
                 go mod download
                 go build -o product-catalog-service main.go
 
-            - name: Run unit tests
-              run: go test ./src/product-catalog/... -v
+            - name: Run tests
+              run: |
+                cd src/product-catalog
+                go test ./...
 
     code-quality:
         runs-on: ubuntu-latest
@@ -40,17 +42,10 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Setup Go v1.22
-              uses: actions/setup-go@v4 
-              with:
-                  go-version: 1.22
-
-            - name: Install golangci-lint
-              run: |
-                  curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.59.2
-
             - name: Run golangci-lint
-              run: golangci-lint run ./src/product-catalog/...
+              uses: golangci/golangci-lint-action@v8
+              with:
+                version: v2.5.0
 
     docker:
         runs-on: ubuntu-latest
