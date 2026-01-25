@@ -4,12 +4,12 @@ RUN apk add --no-cache git ca-certificates
 
 WORKDIR /usr/src/app
 
-COPY ./src/product-catalog/go.mod go.mod
-COPY ./src/product-catalog/go.sum go.sum
+COPY go.mod go.mod
+COPY go.sum go.sum
 
 RUN go mod download
 
-COPY ./src/product-catalog/ .
+COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /usr/src/app/product-catalog .
 
@@ -19,7 +19,7 @@ FROM gcr.io/distroless/base-debian12 AS release
 
 WORKDIR /usr/src/app
 
-COPY ./src/product-catalog/products ./products
+COPY ./products ./products
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /usr/src/app/product-catalog .
