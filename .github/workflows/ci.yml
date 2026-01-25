@@ -93,12 +93,14 @@ jobs:
             - name: Update tag in Kubernetes manifests
               run: |
                   sed -i 's|image: .*|image: '"${{ secrets.DOCKERHUB_USERNAME }}"'/product-catalog-service:'"${{ github.run_id }}"'|g' kubernetes/productcatalog/deploy.yaml
+                  sed -i "s|image: *['\"]\?\(${{secrets.DOCKERHUB_USERNAME}}\)/product-catalog-service:[^'\"]*['\"]\?|image: '\1/product-catalog-service:${{ github.run_id }}'|g" kubernetes/complete-deploy.yaml
+
 
             - name: Commit and push changes
               run: |
                   git config --global user.name "github-actions[bot]"
                   git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                  git add kubernetes/productcatalog/deploy.yaml
+                  git add kubernetes/productcatalog/deploy.yaml kubernetes/complete-deploy.yaml
                   git commit -m "[CI]: update product-catalog-service image tag to ${{ github.run_id }}"
                   git push origin HEAD:main -f
               
