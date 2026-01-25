@@ -503,7 +503,7 @@ services:
       - OTEL_RESOURCE_ATTRIBUTES
       - OTEL_SERVICE_NAME=product-catalog
       - OTEL_SEMCONV_STABILITY_OPT_IN=database
-      - DB_CONNECTION_STRING=postgres://otelu:otelp@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable
+      - DB_CONNECTION_STRING=postgres://root:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}?sslmode=disable
     depends_on:
       otel-collector:
         condition: service_started
