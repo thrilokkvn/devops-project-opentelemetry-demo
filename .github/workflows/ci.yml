@@ -3,11 +3,6 @@
 name: product-catalog-ci
 
 on:
-    push:
-        branches: [ main ]
-        paths-ignore:
-        - 'README.md'
-        - 'kubernetes/**'
     pull_request:
         branches: [ main ]
 
