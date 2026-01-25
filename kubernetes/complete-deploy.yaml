@@ -1499,7 +1499,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: productcatalogservice
-          image: 'thrilokkd/product-catalog-service:v1'
+          image: 'thrilokkd/product-catalog-service:21333548604'
           imagePullPolicy: IfNotPresent
           ports:
             
